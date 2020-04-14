@@ -9,11 +9,11 @@ test('estimate current and projected infections in days', () => {
   const result = {
     data,
     impact: {
-      currentlyInfectedPeople: 10,
+      currentlyInfected: 10,
       infectionsByRequestedTime: 20
     },
     severeImpact: {
-      currentlyInfectedPeople: 50,
+      currentlyInfected: 50,
       infectionsByRequestedTime: 100
     }
   };
@@ -30,11 +30,11 @@ test('estimate current and projected infections in weeks', () => {
   const result = {
     data,
     impact: {
-      currentlyInfectedPeople: 10,
+      currentlyInfected: 10,
       infectionsByRequestedTime: 40
     },
     severeImpact: {
-      currentlyInfectedPeople: 50,
+      currentlyInfected: 50,
       infectionsByRequestedTime: 200
     }
   };
@@ -52,11 +52,11 @@ test('estimate current and projected infections in months', () => {
   const result = {
     data,
     impact: {
-      currentlyInfectedPeople: 10,
+      currentlyInfected: 10,
       infectionsByRequestedTime: 10240
     },
     severeImpact: {
-      currentlyInfectedPeople: 50,
+      currentlyInfected: 50,
       infectionsByRequestedTime: 51200
     }
   };
