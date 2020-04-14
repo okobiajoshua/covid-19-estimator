@@ -1,20 +1,63 @@
 import covid19ImpactEstimator from './estimator';
 
-test('returns right values for currentlyInfectedPeople and infectionsByRequestedTime', () => {
+test('estimate current and projected infections in days', () => {
   const data = {
     periodType: 'days',
     timeToElapse: 3,
-    reportedCases: 10
+    reportedCases: 1
   };
   const result = {
     data,
     impact: {
-      currentlyInfectedPeople: 100,
-      infectionsByRequestedTime: 200
+      currentlyInfectedPeople: 10,
+      infectionsByRequestedTime: 20
     },
     severeImpact: {
-      currentlyInfectedPeople: 500,
-      infectionsByRequestedTime: 1000
+      currentlyInfectedPeople: 50,
+      infectionsByRequestedTime: 100
+    }
+  };
+
+  expect(covid19ImpactEstimator(data)).toEqual(result);
+});
+
+test('estimate current and projected infections in weeks', () => {
+  const data = {
+    periodType: 'weeks',
+    timeToElapse: 1,
+    reportedCases: 1
+  };
+  const result = {
+    data,
+    impact: {
+      currentlyInfectedPeople: 10,
+      infectionsByRequestedTime: 40
+    },
+    severeImpact: {
+      currentlyInfectedPeople: 50,
+      infectionsByRequestedTime: 200
+    }
+  };
+
+  expect(covid19ImpactEstimator(data)).toEqual(result);
+});
+
+
+test('estimate current and projected infections in months', () => {
+  const data = {
+    periodType: 'months',
+    timeToElapse: 1,
+    reportedCases: 1
+  };
+  const result = {
+    data,
+    impact: {
+      currentlyInfectedPeople: 10,
+      infectionsByRequestedTime: 10240
+    },
+    severeImpact: {
+      currentlyInfectedPeople: 50,
+      infectionsByRequestedTime: 51200
     }
   };
 

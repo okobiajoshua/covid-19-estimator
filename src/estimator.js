@@ -11,11 +11,10 @@ const calculateImpact = (data, multiplier) => {
   const {
     reportedCases, periodType, timeToElapse
   } = data;
-  const currentlyInfectedPeople = reportedCases * multiplier;
+  const currentlyInfectedPeople = Math.floor(reportedCases) * multiplier;
   const requestedDays = requestedTimeInDays(periodType, timeToElapse);
-  const factor = parseInt(requestedDays / 3, 10);
-  // eslint-disable-next-line no-restricted-properties
-  const infectionsByRequestedTime = parseInt(currentlyInfectedPeople * Math.pow(2, factor), 10);
+  const factor = Math.floor(requestedDays / 3);
+  const infectionsByRequestedTime = Math.floor(currentlyInfectedPeople * (2 ** factor), 10);
 
   return {
     currentlyInfectedPeople,
