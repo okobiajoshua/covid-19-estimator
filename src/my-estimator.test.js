@@ -1,6 +1,6 @@
 import covid19ImpactEstimator from './estimator';
 
-test('estimate current and projected infections in days', () => {
+test('estimate values in days', () => {
   const data = {
     periodType: 'days',
     timeToElapse: 3,
@@ -26,7 +26,7 @@ test('estimate current and projected infections in days', () => {
   expect(covid19ImpactEstimator(data)).toEqual(result);
 });
 
-test('estimate current and projected infections in weeks', () => {
+test('estimate values in weeks', () => {
   const data = {
     periodType: 'weeks',
     timeToElapse: 1,
@@ -53,7 +53,7 @@ test('estimate current and projected infections in weeks', () => {
 });
 
 
-test('estimate current and projected infections in months', () => {
+test('estimate values in months', () => {
   const data = {
     periodType: 'months',
     timeToElapse: 1,
