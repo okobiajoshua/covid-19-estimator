@@ -16,7 +16,8 @@ const calculateImpact = (data, multiplier) => {
   const factor = Math.floor(requestedDays / 3);
   const infectionsByRequestedTime = currentlyInfected * (2 ** factor);
   const severeCasesByRequestedTime = Math.floor(0.15 * infectionsByRequestedTime);
-  const hospitalBedsByRequestedTime = parseInt(0.35 * totalHospitalBeds - severeCasesByRequestedTime, 10);
+  const expectedAvailableBed = 0.35 * totalHospitalBeds;
+  const hospitalBedsByRequestedTime = Math.floor(expectedAvailableBed - severeCasesByRequestedTime);
   const casesForICUByRequestedTime = Math.floor(0.05 * infectionsByRequestedTime);
   const casesForVentilatorsByRequestedTime = Math.floor(0.02 * infectionsByRequestedTime);
   const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = region;
