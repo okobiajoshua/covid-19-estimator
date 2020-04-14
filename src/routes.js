@@ -8,12 +8,14 @@ const router = new Router();
 router.get('/logs', (req, res) => {
   try {
     res.header('Content-Type', 'plain/text');
-    fs.readFile('log.txt', (err, buf) => {
+    let response;
+    fs.readFileSync('log.txt', (err, buf) => {
       if (err) {
         throw err;
       }
-      return res.send(buf);
+      response = buf;
     });
+    return res.send(response);
   } catch (err) {
     return res.err({ status: 'error', message: err.message });
   }
