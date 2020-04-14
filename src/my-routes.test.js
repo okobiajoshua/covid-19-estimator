@@ -1,5 +1,4 @@
 import request from 'supertest';
-import jtx from 'jtx';
 import app from './app';
 
 describe('Estimate values in days', () => {
@@ -36,7 +35,6 @@ describe('Estimate values in days', () => {
       dollarsInFlight: 83
     }
   };
-  //   const xmlResponse = jtx(jsonResponse);
 
   test('Appropriate response needed for /api/v1/on-covid-19 in days', () => request(app).post('/api/v1/on-covid-19')
     .send(data)
@@ -51,13 +49,6 @@ describe('Estimate values in days', () => {
       expect(response.statusCode).toBe(200);
       expect(response.body).toEqual(jsonResponse);
     }));
-
-//   test('Appropriate response needed for days', () => request(app).post('/api/v1/on-covid-19/xml')
-//     .send(data)
-//     .then((response) => {
-//       expect(response.statusCode).toBe(200);
-//       expect(response.body).toEqual(xmlResponse);
-//     }));
 });
 
 describe('estimate values in weeks', () => {
@@ -94,7 +85,6 @@ describe('estimate values in weeks', () => {
       dollarsInFlight: 71
     }
   };
-  //   const xmlResponse = jtx(jsonResponse);
 
   test('Appropriate response needed for /api/v1/on-covid-19 in weeks', () => request(app).post('/api/v1/on-covid-19')
     .send(data)
@@ -110,12 +100,6 @@ describe('estimate values in weeks', () => {
       expect(response.body).toEqual(jsonResponse);
     }));
 
-//   test('Appropriate response needed for /api/v1/on-covid-19/xml in weeks', () => request(app).post('/api/v1/on-covid-19/xml')
-//     .send(data)
-//     .then((response) => {
-//       expect(response.statusCode).toBe(200);
-//       expect(response.body).toEqual(xmlResponse);
-//     }));
 });
 
 
@@ -153,7 +137,6 @@ describe('estimate values in months', () => {
       dollarsInFlight: 4266
     }
   };
-  //   const xmlResponse = jtx(jsonResponse);
 
   test('Appropriate response needed for /api/v1/on-covid-19 in months', () => request(app).post('/api/v1/on-covid-19')
     .send(data)
@@ -168,11 +151,4 @@ describe('estimate values in months', () => {
       expect(response.statusCode).toBe(200);
       expect(response.body).toEqual(jsonResponse);
     }));
-
-//   test('Appropriate response needed for days /api/v1/on-covid-19/xml in months', () => request(app).post('/api/v1/on-covid-19/xml')
-//     .send(data)
-//     .then((response) => {
-//       expect(response.statusCode).toBe(200);
-//       expect(response.body).toEqual(xmlResponse);
-//     }));
 });
