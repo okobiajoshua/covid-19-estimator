@@ -10,7 +10,7 @@ const logRequestDetails = (req, res, next) => {
     const endTime = new Date();
     const timeSpent = endTime - startTime;
     const data = `${reqMethod}\t\t${reqUrl}\t\t${resCode}\t\t${timeSpent} ms\n`;
-    fs.appendFile('log.txt', data, (err) => console.log(err));
+    fs.appendFile('log.txt', data, (err) => err);
   });
 
   next();
