@@ -11,13 +11,13 @@ const calculateImpact = (data, multiplier) => {
   const {
     reportedCases, periodType, timeToElapse
   } = data;
-  const currentlyInfectedPeople = Math.floor(reportedCases) * multiplier;
+  const currentlyInfected = Math.floor(reportedCases) * multiplier;
   const requestedDays = requestedTimeInDays(periodType, timeToElapse);
   const factor = Math.floor(requestedDays / 3);
-  const infectionsByRequestedTime = currentlyInfectedPeople * (2 ** factor);
+  const infectionsByRequestedTime = currentlyInfected * (2 ** factor);
 
   return {
-    currentlyInfectedPeople,
+    currentlyInfected,
     infectionsByRequestedTime
   };
 };
