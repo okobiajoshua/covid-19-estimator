@@ -6,6 +6,4 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const port = process.env.SERVER_PORT || 3000;
 
-_app.default.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+_app.default.listen(port, () => {});

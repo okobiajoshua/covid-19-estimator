@@ -19,7 +19,7 @@ const logRequestDetails = (req, res, next) => {
     const timeSpent = endTime - startTime;
     const data = `${reqMethod}\t\t${reqUrl}\t\t${resCode}\t\t${timeSpent} ms\n`;
 
-    _fs.default.appendFile('log.txt', data, err => console.log(err));
+    _fs.default.appendFile('log.txt', data, err => err);
   });
   next();
 };

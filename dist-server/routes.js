@@ -16,17 +16,20 @@ var _estimator = _interopRequireDefault(require("./estimator"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const router = new _express.Router();
-router.get('/log', (req, res) => {
+router.get('/logs', (req, res) => {
   try {
     res.header('Content-Type', 'plain/text');
+    let response;
 
-    _fs.default.readFile('log.txt', (err, buf) => {
+    _fs.default.readFileSync('log.txt', (err, buf) => {
       if (err) {
         throw err;
       }
 
-      return res.send(buf);
+      response = buf;
     });
+
+    return res.send(response);
   } catch (err) {
     return res.err({
       status: 'error',
